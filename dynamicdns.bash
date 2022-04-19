@@ -19,9 +19,8 @@ function usage {
 
 function createConfigurationFile {
 
-  if [ ! -d $HOME/.config ]; then
-    echo "$HOME/.config/ does not exist, creating directory."
-    mkdir $HOME/.config
+  if [ ! -d `dirname "$CONFIG"` ]; then
+    mkdir -p `dirname "$CONFIG"`
   fi
 
   umask 077
@@ -162,14 +161,14 @@ done
 
 #Check for Configuration File
 
-if [ ! -f ~/.config/dynamicdns ]; then
+if [ ! -f "$CONFIG" ]; then
   logStatus "notice" "Configuration File Not Found. Creating new configuration file."
   createConfigurationFile
 fi
 
 # Load Configuration File
 
-source ~/.config/dynamicdns
+source "$CONFIG"
 
 # check for dependencies, if wget not available, test for curl, set variable to be used to test this later
 if command -v wget >/dev/null 2>&1; then
