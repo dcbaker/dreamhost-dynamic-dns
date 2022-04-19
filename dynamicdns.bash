@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # This script updates a DNS A record hosted by Dreamhost to your current IP
 # address via the Dreamhost API.
