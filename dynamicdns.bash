@@ -102,7 +102,7 @@ function saveConfiguration {
 VERBOSE="false"
 LISTONLY="false"
 #Get Command Line Options
-while getopts "L:i:k:r:Sdvl" OPTS
+while getopts "L:i:k:r:Sdvlc:" OPTS
 do
   case $OPTS in
     L)
@@ -150,6 +150,10 @@ do
 
     d)
     SAVEONLY="true"
+    ;;
+
+    c)
+    CONFIG="$OPTARG"
     ;;
 
     ?)
